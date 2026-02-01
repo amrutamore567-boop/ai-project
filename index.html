@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For You ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+    <!-- Forgive Me Section -->
+    <section class="forgive-section">
+        <h1>Hey You ❤️</h1>
+        <p class="intro">I know I missed your birthday… but can you forgive me? 🥺</p>
+        <button id="yes-btn" onclick="showSurprise()">Yes ❤️</button>
+        <button id="no-btn">No 😅</button>
+    </section>
+
+    <!-- Compliment Section -->
+    <section class="compliment-section">
+        <h2>Let me tell you why you’re amazing 🥰</h2>
+        <p>Every time I see you, I can’t help but admire…</p>
+
+        <div class="photo-block">
+            <img src="C:\Users\Amruta more\Desktop\hame maff karo sir.ji\BICEP.jpeg" class="photo" alt="Biceps Photo">
+            <p class="compliment">Wow, those biceps are next-level 💪🔥! You always inspire me with your strength and dedication.</p>
+        </div>
+
+        <div class="photo-block">
+            <img src="C:\Users\Amruta more\Desktop\hame maff karo sir.ji\TRADITIONAL.jpeg" class="photo" alt="Traditional Outfit Photo">
+            <p class="compliment">You look absolutely stunning in that traditional outfit ❤️. Elegance just follows you everywhere.</p>
+        </div>
+
+        <p class="extra-compliment">And honestly… your smile lights up everything around you 🌟. I’m lucky to know you!</p>
+    </section>
+
+    <!-- Surprise Section (hidden until click) -->
+    <section id="surprise" class="hidden">
+        <h2>And now… here’s our special moment 💖</h2>
+        <img src="C:\Users\Amruta more\Desktop\hame maff karo sir.ji\Amruta_More_image-combiner.jpg" class="photo" alt="Us Together">
+        <p class="surprise-text">
+            Happy Belated Birthday ❤️  
+            You are my favorite person, always.  
+            I hope this little surprise makes up for my forgetfulness 🥹
+        </p>
+    </section>
+
+</div>
+
+<!-- Floating Hearts -->
+<div class="hearts"></div>
+
+<script>
+// Floating hearts
+function createHearts() {
+    for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => { heart.remove(); }, 5000);
+    }
+}
+
+// Show surprise photo when Yes clicked
+function showSurprise() {
+    const surprise = document.getElementById("surprise");
+    surprise.style.display = "block";
+    createHearts();
+    surprise.scrollIntoView({behavior: "smooth"});
+}
+
+// Make No button move away on hover
+const noBtn = document.getElementById("no-btn");
+noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+</script>
+
+</body>
+</html>
